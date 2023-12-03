@@ -11,6 +11,6 @@ const dependencies = {
 
 const { app, listen } = createServer(dependencies);
 
-  listen(PORT, () => {
-    console.log('Server listening on port ' + PORT);
-  });
+listen(PORT, () => {
+  console.log('Server listening on port ' + PORT);
+});
