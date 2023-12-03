@@ -1,4 +1,16 @@
-const express = require('express');
-const app = express();
+import createServer from './framework/express';
+import BaseRepository from './repository/BaseRepository';
+import ClientRepository from './repository/ClientRepository';
+const PORT = 3100
 
-app.listen(3000, () => console.log('Server listening on port 3000'));
+// TODO: Move to configuration folder
+const dependencies = {
+    baseRepository: new BaseRepository(),
+    clientRepository: new ClientRepository(),
+};
+
+const { app, listen } = createServer(dependencies);
+
+  listen(PORT, () => {
+    console.log('Server listening on port ' + PORT);
+  });
